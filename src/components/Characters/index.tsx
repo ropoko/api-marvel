@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../../store';
 import { Character } from '../../store/features/characters/types';
 
-interface Props {
-    characters: Character[];
+import { bindActionCreators, Dispatch } from 'redux';
+import * as CharactersActions from '../../store/features/characters/actions';
+
+interface DispatchProps {
+	loadRequest(): void;
 }
 
-const Characters: React.FC<Props> = ({ characters }) => {
+type Props = {
+	characters: Character[];
+} & DispatchProps;
+
+const Characters: React.FC<Props> = (props) => {
+
+	useEffect(() => {
+		props.loadRequest();
+	}, []);
+
 	return (
 		<ul>
-			{characters.map((char) => (
-				<li key={char.id}>{char.id} - {char.name}</li>
+			{props.characters.map((char) => (
+				<li key={char.id}>{char.name}</li>
 			))}
 		</ul>
 	);
@@ -21,4 +33,7 @@ const mapStateToProps = (state: ApplicationState) => ({
 	characters: state.characters.data
 });
 
-export default connect(mapStateToProps)(Characters);
+const mapDispatchToProps = (dispatch: Dispatch) =>
+	bindActionCreators(CharactersActions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Characters);
