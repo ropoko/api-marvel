@@ -1,5 +1,5 @@
-import { action } from "typesafe-actions";
-import { Character, CharacterActions } from "./types";
+import { action } from 'typesafe-actions';
+import { Character, CharacterActions } from './types';
 
 export const loadRequest = () => action(CharacterActions.LOAD_REQUEST);
 
