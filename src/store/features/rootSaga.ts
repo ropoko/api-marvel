@@ -1,4 +1,3 @@
-import { Saga } from 'redux-saga';
 import { all, takeLatest } from 'redux-saga/effects';
 
 import { load } from './characters/sagas';

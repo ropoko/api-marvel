@@ -8,7 +8,7 @@ import * as CharactersActions from '../../store/features/characters/actions';
 import { PagedData } from '../../models/httpResponse';
 
 interface DispatchProps {
-	loadRequest(name?: string): void;
+	loadRequest(name: string): void;
 }
 
 type Props = {
@@ -18,11 +18,10 @@ type Props = {
 const Characters: React.FC<Props> = ({ info, loadRequest }) => {
 
 	useEffect(() => {
-		loadRequest();
+		loadRequest('wong');
 	}, []);
 
 	const { results } =  info.data;
-	console.log(results);
 
 	return (
 		<ul>
