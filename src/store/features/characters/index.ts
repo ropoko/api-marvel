@@ -12,7 +12,7 @@ const reducer: Reducer<CharacterState> = (state = INITIAL_STATE, action) => {
 	case CharacterActions.LOAD_REQUEST:
 		return { ...state, loading: true };
 	case CharacterActions.LOAD_SUCCESS:
-		return { ...state, loading: false, error: false, data: action.payload };
+		return { ...state, loading: false, error: false, data: action.payload.data };
 	case CharacterActions.LOAD_FAILURE:
 		return { ...state, loading: false, error: true, data: [] };
 

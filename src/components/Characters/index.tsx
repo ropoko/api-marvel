@@ -7,7 +7,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 import * as CharactersActions from '../../store/features/characters/actions';
 
 interface DispatchProps {
-	loadRequest(): void;
+	loadRequest(name?: string): void;
 }
 
 type Props = {
@@ -16,15 +16,19 @@ type Props = {
 
 const Characters: React.FC<Props> = (props) => {
 
+	const { data } = props.characters as any;
+
 	useEffect(() => {
 		props.loadRequest();
 	}, []);
 
+	console.log(data['data']);
+
 	return (
 		<ul>
-			{props.characters.map((char) => (
+			{/* {props.characters.map((char) => (
 				<li key={char.id}>{char.name}</li>
-			))}
+			))} */}
 		</ul>
 	);
 };
