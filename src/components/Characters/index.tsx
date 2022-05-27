@@ -5,36 +5,36 @@ import { Character } from '../../store/features/characters/types';
 
 import { bindActionCreators, Dispatch } from 'redux';
 import * as CharactersActions from '../../store/features/characters/actions';
+import { PagedData } from '../../models/httpResponse';
 
 interface DispatchProps {
 	loadRequest(name?: string): void;
 }
 
 type Props = {
-	characters: Character[];
+	info: PagedData<Character>;
 } & DispatchProps;
 
-const Characters: React.FC<Props> = (props) => {
-
-	const { data } = props.characters as any;
+const Characters: React.FC<Props> = ({ info, loadRequest }) => {
 
 	useEffect(() => {
-		props.loadRequest();
+		loadRequest();
 	}, []);
 
-	console.log(data['data']);
+	const { results } =  info.data;
+	console.log(results);
 
 	return (
 		<ul>
-			{/* {props.characters.map((char) => (
+			{results.map((char) => (
 				<li key={char.id}>{char.name}</li>
-			))} */}
+			))}
 		</ul>
 	);
 };
 
 const mapStateToProps = (state: ApplicationState) => ({
-	characters: state.characters.data
+	info: state.characters.info.data
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>

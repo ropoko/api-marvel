@@ -1,3 +1,5 @@
+import { HttpResponse } from '../../../models/httpResponse';
+
 export enum CharacterActions {
 	LOAD_REQUEST = '@characters/LOAD_REQUEST',
 	LOAD_SUCCESS = '@characters/LOAD_SUCCESS',
@@ -15,7 +17,7 @@ export interface Character {
 }
 
 export interface CharacterState {
-	readonly data: Character[];
+	readonly info: HttpResponse<Character>;
 	readonly loading: boolean;
 	readonly error: boolean;
 }
