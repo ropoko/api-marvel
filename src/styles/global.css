@@ -7,6 +7,8 @@
 :root {
 	--link: #337DFF;
 	--link-hover: #1E58C0;
+	--sidebar-background: #202020;
+	--text-white: rgb(226, 212, 212);
 }
 
 .App {
@@ -14,14 +16,14 @@
 }
 
 a {
-	color: var(--link);
+	color: var(--text-white);
 	text-decoration: none;
 	transition: color	.2s;
 }
-
+/*
 a:hover {
 	color: var(--link-hover);
-}
+} */
 
 button {
 	cursor: pointer;

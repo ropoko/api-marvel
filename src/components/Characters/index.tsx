@@ -18,7 +18,7 @@ type Props = {
 const Characters: React.FC<Props> = ({ info, loadRequest }) => {
 
 	useEffect(() => {
-		loadRequest('wong');
+		loadRequest('');
 	}, []);
 
 	const { results } =  info.data;
