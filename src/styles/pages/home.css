@@ -1,0 +1,6 @@
+.container {
+	padding-left: clamp(20rem, 22vw, 40rem);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

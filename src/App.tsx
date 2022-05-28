@@ -5,11 +5,12 @@ import {
 	Routes,
 	Route
 } from 'react-router-dom';
-import Characters from './components/Characters';
+import store from './store/index';
+import './styles/global.css';
+
+import Home from './pages/Home';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
-import store from './store';
-import './styles/global.css';
 
 function App() {
 	return (
@@ -18,7 +19,7 @@ function App() {
 				<Router>
 					<Sidebar />
 					<Routes>
-						<Route path="/char" element={<Characters />}></Route>
+						<Route path="/" element={<Home />}></Route>
 						{/* <Route path="/details" element={<Details />}></Route>
 						<Route path="/stars" element={<Stars />}></Route> */}
 					</Routes>
