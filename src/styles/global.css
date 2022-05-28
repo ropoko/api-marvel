@@ -1,0 +1,28 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--link: #337DFF;
+	--link-hover: #1E58C0;
+}
+
+.App {
+	font-family: sans-serif;
+}
+
+a {
+	color: var(--link);
+	text-decoration: none;
+	transition: color	.2s;
+}
+
+a:hover {
+	color: var(--link-hover);
+}
+
+button {
+	cursor: pointer;
+}
