@@ -6,6 +6,8 @@
 	align-items: center;
 	justify-content: space-around;
 	background: var(--sidebar-background);
+
+	margin-bottom: 1rem;
 }
 
 .banner .banner-img {

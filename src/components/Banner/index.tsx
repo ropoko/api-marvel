@@ -18,23 +18,29 @@ type Props = {
 const Banner: React.FC<Props> = ({ info, loadRequest }) => {
 
 	useEffect(() => {
-		loadRequest('', 1009351);
+		// loadRequest('', 1009351);
 	}, []);
 
 	const { results } = info.data;
 
 	return (
 		<>
-			{results.map((char) => (
+			{/* {results.map((char) => (
 				<section className='banner' key={char.id}>
 					<div className='text'>
 						<strong>{char.name}</strong>
 						<p>{char.description}</p>
-						{/* <a href="#">Saiba mais sobre {char.name} aqui!</a> */}
 					</div>
-					<img className='banner-img' src={`${char.thumbnail.path}.${char.thumbnail.extension}`} alt="3-D Man Banner" />
+					<img className='banner-img' src={`${char.thumbnail.path}.${char.thumbnail.extension}`} alt={`${char.name} banner`} />
 				</section>
-			))}
+			))} */}
+			<section className='banner'>
+				<div className='text'>
+					<strong>A-Bomb (HAS)</strong>
+					<p>Rick Jones has been Hulk`s best bud since day one, but now he`s more than a friend...he`s a teammate! Transformed by a Gamma energy explosion, A-Bomb`s thick, armored skin is just as strong and powerful as it is blue. And when he curls into action, he uses it like a giant bowling ball of destruction!</p>
+				</div>
+				<img className='banner-img' src="http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16.jpg" alt="A-Bomb (HAS)" />
+			</section>
 		</>
 	);
 };

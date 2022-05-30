@@ -6,6 +6,9 @@ import { Character } from '../../store/features/characters/types';
 import { bindActionCreators, Dispatch } from 'redux';
 import * as CharactersActions from '../../store/features/characters/actions';
 import { PagedData } from '../../models/httpResponse';
+import Card from '../Card';
+
+import './characters.style.css';
 
 interface DispatchProps {
 	loadRequest(name: string, id?: number): void;
@@ -24,11 +27,11 @@ const Characters: React.FC<Props> = ({ info, loadRequest }) => {
 	const { results } =  info.data;
 
 	return (
-		<ul>
+		<div className='characters-list'>
 			{results.map((char) => (
-				<li key={char.id}>{char.name}</li>
+				<Card key={char.id} char={char} />
 			))}
-		</ul>
+		</div>
 	);
 };
 

@@ -21,10 +21,10 @@ const reducer: Reducer<CharacterState> = (state = INITIAL_STATE, action) => {
 		return { ...state, loading: false, error: false, info: action.payload.data };
 	case CharacterActions.LOAD_FAILURE:
 		return { ...state, loading: false, error: true, info: { data: { data: { results: [] } } } };
-
 	default:
 		return state;
 	}
+
 };
 
 export default reducer;
