@@ -8,7 +8,7 @@ import * as CharactersActions from '../../store/features/characters/actions';
 import { PagedData } from '../../models/httpResponse';
 
 interface DispatchProps {
-	loadRequest(name: string): void;
+	loadRequest(name: string, id?: number): void;
 }
 
 type Props = {

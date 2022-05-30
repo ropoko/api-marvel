@@ -9,10 +9,13 @@
 	--link-hover: #1E58C0;
 	--sidebar-background: #202020;
 	--text-white: rgb(226, 212, 212);
+	--app-background: #ebebeb;
 }
 
 .App {
+	background: var(--app-background);
 	font-family: sans-serif;
+	height: 100vh;
 }
 
 a {
@@ -20,10 +23,6 @@ a {
 	text-decoration: none;
 	transition: color	.2s;
 }
-/*
-a:hover {
-	color: var(--link-hover);
-} */
 
 button {
 	cursor: pointer;
