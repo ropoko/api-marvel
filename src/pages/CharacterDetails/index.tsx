@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { bindActionCreators, Dispatch } from 'redux';
+import Loading from '../../components/Loading';
 import { PagedData } from '../../models/httpResponse';
 import { ApplicationState } from '../../store';
 import * as CharactersActions from '../../store/features/characters/actions';
@@ -14,9 +15,10 @@ interface DispatchProps {
 
 type Props = {
 	info: PagedData<Character>;
+	loading: boolean;
 } & DispatchProps;
 
-const CharacterDetails: React.FC<Props> = ({ info, loadRequest }) => {
+const CharacterDetails: React.FC<Props> = ({ info, loading, loadRequest }) => {
 	const { id } = useParams();
 
 	useEffect(() => {
@@ -27,24 +29,32 @@ const CharacterDetails: React.FC<Props> = ({ info, loadRequest }) => {
 
 	return (
 		<div className='container'>
-			{results.map((char) => (
-				<div key={char.id} className='char'>
-					<Link className='link-back' to={'/'}>☚ voltar</Link>
-					<section className='img'>
-						<img src={`${char.thumbnail.path}.${char.thumbnail.extension}`} alt={`${char.name} foto`} />
-					</section>
-					<section className='char-text'>
-						<h1>{char.name}</h1>
-						<p>{char.description === '' ? 'Não possui descrição' : char.description}</p>
-					</section>
-				</div>
-			))}
+			{
+				loading
+					? <Loading />
+					:
+					<>
+						{results.map((char) => (
+							<div key={char.id} className='char'>
+								<Link className='link-back' to={'/'}>☚ voltar</Link>
+								<section className='img'>
+									<img src={`${char.thumbnail.path}.${char.thumbnail.extension}`} alt={`${char.name} foto`} />
+								</section>
+								<section className='char-text'>
+									<h1>{char.name}</h1>
+									<p>{char.description === '' ? 'Não possui descrição' : char.description}</p>
+								</section>
+							</div>
+						))}
+					</>
+			}
 		</div>
 	);
 };
 
 const mapStateToProps = (state: ApplicationState) => ({
-	info: state.characters.info.data
+	info: state.characters.info.data,
+	loading: state.characters.loading
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
