@@ -1,0 +1,50 @@
+.container {
+	padding-left: clamp(20rem, 22vw, 40rem);
+	height: 100%;
+}
+
+.char {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	height: 100%;
+	position: relative;
+	padding: 0 0 0 1rem;
+}
+
+.char .link-back {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	color: black;
+	font-size: 1.2rem;
+}
+
+.char .link-back:hover {
+	text-decoration: underline;
+}
+
+.char .img {
+	width: 100%;
+	height: 12rem;
+	max-width: 11rem;
+}
+
+.char .img img {
+	width: 100%;
+	height: 100%;
+	max-width: 11rem;
+}
+
+.char .char-text {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	height: 12rem;
+}
+
+.char .char-text p {
+	text-align: justify;
+	padding: 0.8rem;
+}

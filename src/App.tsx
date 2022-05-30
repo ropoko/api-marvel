@@ -3,7 +3,8 @@ import { Provider } from 'react-redux';
 import {
 	BrowserRouter as Router,
 	Routes,
-	Route
+	Route,
+	useParams
 } from 'react-router-dom';
 import store from './store/index';
 import './styles/global.css';
@@ -11,6 +12,7 @@ import './styles/global.css';
 import Home from './pages/Home';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
+import CharacterDetails from './pages/CharacterDetails';
 
 function App() {
 	return (
@@ -20,8 +22,7 @@ function App() {
 					<Sidebar />
 					<Routes>
 						<Route path="/" element={<Home />}></Route>
-						{/* <Route path="/details" element={<Details />}></Route>
-						<Route path="/stars" element={<Stars />}></Route> */}
+						<Route path="/character/:id" element={<CharacterDetails />}></Route>
 					</Routes>
 				</Router>
 				<Footer />
